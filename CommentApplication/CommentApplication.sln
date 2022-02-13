@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1778
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentApplication", "CommentApplication\CommentApplication.csproj", "{3687840D-56D1-45CA-8F14-0B79B6D23499}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3687840D-56D1-45CA-8F14-0B79B6D23499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3687840D-56D1-45CA-8F14-0B79B6D23499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3687840D-56D1-45CA-8F14-0B79B6D23499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3687840D-56D1-45CA-8F14-0B79B6D23499}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3230155A-6F3B-4BC8-987D-DF5D3825C1CD}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿@model CommentApplication.ViewModel.SignInViewModel
+@{
+    ViewBag.Title = "SignIn";
+
+}
+
+<h2>Sign In</h2>
+
+
+<div style="align-items: flex-start;">
+    @using (Html.BeginForm("SignIn", "Account"))
+    {
+        <div style="color:red;">@Html.ValidationSummary()</div>
+        <div class="row">
+            <!--Show details are saved successfully message-->
+            <div class="col-lg-12">@ViewBag.Message</div>
+        </div><br />
+        <div>
+            <h5>
+                Dont have an account?
+                <a href="~/Account/SignUp">Sign Up</a>
+            </h5>
+        </div>
+        <div class="row">
+            <div class="col-lg-10">@Html.LabelFor(a => a.Email)</div>
+            <br>
+            <div class="col-lg-10" >@Html.TextBoxFor(a => a.Email, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-10">@Html.LabelFor(a => a.Password)</div>
+            <br>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.Password, new { @class = "form-control", type = "Password" })</div>
+        </div>
+        <div>
+          <br />
+                <a href="~/Account/ForgotPassword">Forgot your password?</a>
+        </div>
+        <br />
+        <input type="submit" value="Sign In" class="btn btn-primary">
+    }
+
+</div>
