@@ -1,5 +1,13 @@
 # FeedbackApplication
 
+## Language's Used:
+
+1) C#
+2) Asp.net MVC
+3) Sql
+4) Html
+5) Css
+
 ## Tools Required
 
 1) Visual studio 2017 or later
