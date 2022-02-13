@@ -1,4 +1,4 @@
-﻿using CommentApplication.Models;
+using CommentApplication.Models;
 using CommentApplication.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -47,10 +47,10 @@ namespace CommentApplication.Controllers
             else
                 return RedirectToAction("SignIn");
         }
-        
+
         [HttpPost]
         public ActionResult SaveSignUpDetails(SignUpViewModel SignUpDetails)
-        { 
+        {
             if (ModelState.IsValid && !IsUserAlreadyExists(SignUpDetails.Email))
             {
                 //create database context using Entity framework 
@@ -85,8 +85,14 @@ namespace CommentApplication.Controllers
 
         [HttpPost]
         public ActionResult SaveUserComment()
-        {            
-            if (ModelState.IsValid &&  IsUserLoggedIn())
+        {
+            string comment = HttpContext.Request.Form["Comment"];
+            if (string.IsNullOrEmpty(comment))
+            {
+                ViewBag.Message = "Pleae enter comment";
+                return RedirectToAction("Comments");
+            }
+            else if (ModelState.IsValid && IsUserLoggedIn())
             {
                 //create database context using Entity framework 
                 using (var databaseContext = new CommentApplicationEntities())
@@ -96,7 +102,7 @@ namespace CommentApplication.Controllers
                     string email = Session["Email"].ToString();
                     //Save all details in RegitserUser object     
 
-                    newUserComment.Comment = HttpContext.Request.Form["Comment"];
+                    newUserComment.Comment = comment;
                     newUserComment.CreatedTime = DateTimeOffset.Now;
                     newUserComment.UserId = databaseContext.Users.Where(x => x.Email.Equals(email)).Select(x => x.Id).FirstOrDefault();
 
@@ -133,13 +139,13 @@ namespace CommentApplication.Controllers
                     string email = userDetails.Email;
                     string secretCode = userDetails.SecretCode;
                     //Save all details in RegitserUser object     
-                    
+
                     string password = databaseContext.Users.Where(x => x.Email.Equals(email) & x.SecretCode.Equals(secretCode))?.Select(x => x.Password)?.FirstOrDefault();
 
-                    ViewBag.Message = password!=null ?"Your Password: "+ password : "Email or Secret code looks invalid";
+                    ViewBag.Message = password != null ? "Your Password: " + password : "Email or Secret code looks invalid";
                 }
 
-               
+
                 return View("ForgotPassword");
             }
             else
@@ -188,7 +194,7 @@ namespace CommentApplication.Controllers
         }
 
         public bool IsUserLoggedIn()
-        {             
+        {
             return Session["Email"] != null;
         }
 
@@ -215,7 +221,6 @@ namespace CommentApplication.Controllers
                     return user;
             }
         }
-
 
         public ActionResult Logout()
         {
