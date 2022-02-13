@@ -1,5 +1,21 @@
 # FeedbackApplication
 
+## Tools Required
+
+1) Visual studio 2017 or later
+2) Sql services management studio 
+
+
+## Steps to Load a project
+
+1) Open visual studio & open the solution file.
+2) Open Sql services management studio & restore the database backup.
+3) Build the solution.
+4) Ctrl + f5 or run solution without debugging.
+5) System will redirect to home page. Create an new user & use the same for sign in.
+
+
+
 ## Screenshots
 
 ### ApplicationDemo 
